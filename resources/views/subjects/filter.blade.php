@@ -4,18 +4,22 @@
     <title>My Subjects List</title>
 </head>
 <body>
-    <h1>My Subjects List</h1>
-    <p>Prepared by: Juliana Tabirara</p>
 
-    <table border="1" cellpadding="8" cellspacing="0">
+<h1>Subject Filter</h1>
+<p>Prepared by: Juliana Tabirara</p>
+<p><strong>{{ $message }}</strong></p>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
         <tr>
             <th>ID</th>
             <th>Code</th>
             <th>Title</th>
             <th>Units</th>
         </tr>
-
-        @foreach ($subjects as $subj)
+    </thead>
+    <tbody>
+    @foreach ($subjects as $subj)
         <tr>
             <td>{{ $subj['id'] }}</td>
             <td>
@@ -26,13 +30,11 @@
             <td>{{ $subj['title'] }}</td>
             <td>{{ $subj['units'] }}</td>
         </tr>
-        @endforeach
-    </table>
+    @endforeach
+    </tbody>
+</table>
 
-    <p>
-        <a href="{{ route('subjects.featured') }}">View Featured Subject</a> |
-        <a href="{{ route('subjects.filter') }}">View All / Filter</a>
-    </p>
+<p><a href="{{ route('subjects.index') }}">← Back to Subject List</a></p>
 
 </body>
 </html>
