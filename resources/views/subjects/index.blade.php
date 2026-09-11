@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Subjects List</title>
-</head>
-<body>
-    <h1>My Subjects List</h1>
-    <p>Prepared by: Juliana Tabirara</p>
+@extends('layouts.app')
 
-    <table border="1" cellpadding="8" cellspacing="0">
+@section('title', 'My Subjects List')
+
+@section('content')
+
+    <table class="table table-striped table-bordered">
         <tr>
+            <th>#</th>
             <th>ID</th>
             <th>Code</th>
             <th>Title</th>
             <th>Units</th>
         </tr>
 
-        @foreach ($subjects as $subj)
+        @forelse ($subjects as $subj)
         <tr>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $subj['id'] }}</td>
             <td>
                 <a href="{{ route('subjects.show', $subj['id']) }}">
@@ -24,15 +23,18 @@
                 </a>
             </td>
             <td>{{ $subj['title'] }}</td>
-            <td>{{ $subj['units'] }}</td>
+            <td>
+                @if ($subj['units'] >= 3)
+                    <strong>{{ $subj['units'] }} (Heavy Load)</strong>
+                @else
+                    {{ $subj['units'] }}
+                @endif
+            </td>
         </tr>
-        @endforeach
+        @empty
+        <tr>
+            <td colspan="5">No subjects have been added yet. Check back once some are added.</td>
+        </tr>
+        @endforelse
     </table>
-
-    <p>
-        <a href="{{ route('subjects.featured') }}">View Featured Subject</a> |
-        <a href="{{ route('subjects.filter') }}">View All / Filter</a>
-    </p>
-
-</body>
-</html>
+@endsection

@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Subjects List</title>
-</head>
-<body>
+@extends('layouts.app')
 
-<h1>Subject Details</h1>
-<p>Prepared by: Juliana Tabirara</p>
+@section('title', $product->name)
 
-<p><strong>ID:</strong> {{ $subject['id'] }}</p>
-<p><strong>Code:</strong> {{ $subject['code'] }}</p>
-<p><strong>Title:</strong> {{ $subject['title'] }}</p>
-<p><strong>Units:</strong> {{ $subject['units'] }}</p>
-
-<p><a href="{{ route('subjects.index') }}">← Back to Subject List</a></p>
-
-</body>
-</html>
+@section('content')
+    <h2>{{ $product->name }}</h2>
+    <p>{{ $product->description }}</p>
+    <p>Price: ${{ $product->price }}</p>
+@endsection
