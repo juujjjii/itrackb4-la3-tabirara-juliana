@@ -10,7 +10,7 @@
 
     <header class="bg-dark text-white p-3 mb-4">
         <div class="container">
-            <h1>Juliana's Subject Portal</h1>
+            <h1>Robin's Shelf</h1>
             @include('partials._nav')
         </div>
     </header>
@@ -20,7 +20,7 @@
     </main>
 
     <footer class="container text-center text-muted mt-5 mb-3">
-        <p>Juliana Tabirara</p>
+        <p>Robin Quijano</p>
     </footer>
 
 </body>
